@@ -1,0 +1,6 @@
+@OnionArcCQRS.WebApi_HostAddress = http://localhost:5224
+
+GET {{OnionArcCQRS.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
