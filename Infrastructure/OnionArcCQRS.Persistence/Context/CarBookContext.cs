@@ -12,9 +12,17 @@ namespace OnionArcCQRS.Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-3QG9GTV;initial catalog = CarBookDb; integrated security=true; TrustServerCertificate=True");
+            //abra a5 
+            //optionsBuilder.UseSqlServer("server=DESKTOP-3QG9GTV;initial catalog = CarBookDb; integrated security=true; TrustServerCertificate=True");
+            // tulpar t5
+            optionsBuilder.UseSqlServer("server=DESKTOP-21DNK0N;initial catalog = CarBookDb; integrated security=true; TrustServerCertificate=True");
         }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CarPricing>()
+                .Property(c => c.Amount)
+                .HasColumnType("decimal(18,2)"); // Örnek olarak, decimal(18,2) olarak yapılandırıldı. 
+        }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Brand> Brands{ get; set; }
