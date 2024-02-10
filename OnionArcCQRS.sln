@@ -5,17 +5,23 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{09DF6A85-75E7-461A-86FA-82FEA03F50BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArcCQRS.Domain", "Core\OnionArcCQRS.Domain\OnionArcCQRS.Domain.csproj", "{5209DE12-3643-49B0-9147-D01F63AB772F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArcCQRS.Domain", "Core\OnionArcCQRS.Domain\OnionArcCQRS.Domain.csproj", "{5209DE12-3643-49B0-9147-D01F63AB772F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6227A365-703F-4B09-ABE6-D36048B2BA08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArcCQRS.Persistence", "Infrastructure\OnionArcCQRS.Persistence\OnionArcCQRS.Persistence.csproj", "{84614E7F-CA76-4966-B67E-2CB2423F5BD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArcCQRS.Persistence", "Infrastructure\OnionArcCQRS.Persistence\OnionArcCQRS.Persistence.csproj", "{84614E7F-CA76-4966-B67E-2CB2423F5BD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{A204D1EC-E4EE-4D89-9BEB-61B70D97D17E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArcCQRS.WebApi", "Presentation\OnionArcCQRS.WebApi\OnionArcCQRS.WebApi.csproj", "{72CC7115-3558-4A39-8F2A-424FAE6322E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArcCQRS.WebApi", "Presentation\OnionArcCQRS.WebApi\OnionArcCQRS.WebApi.csproj", "{72CC7115-3558-4A39-8F2A-424FAE6322E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArcCQRS.Application", "Core\OnionArcCQRS.Application\OnionArcCQRS.Application.csproj", "{10190852-A160-4D40-B6C2-0159A9EB08E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnionArcCQRS.Application", "Core\OnionArcCQRS.Application\OnionArcCQRS.Application.csproj", "{10190852-A160-4D40-B6C2-0159A9EB08E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{650A3A70-D132-448D-B208-98F7A92E03B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArcCQRS.WebUI", "FrontEnd\OnionArcCQRS.WebUI\OnionArcCQRS.WebUI.csproj", "{D0E23908-F35E-45D8-9C4C-23823A1C12FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArcCQRS.Dto", "FrontEnd\OnionArcCQRS.Dto\OnionArcCQRS.Dto.csproj", "{5133AB7F-956E-4A2B-AB55-FDEA2E2A6A2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,14 @@ Global
 		{10190852-A160-4D40-B6C2-0159A9EB08E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10190852-A160-4D40-B6C2-0159A9EB08E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10190852-A160-4D40-B6C2-0159A9EB08E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E23908-F35E-45D8-9C4C-23823A1C12FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E23908-F35E-45D8-9C4C-23823A1C12FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E23908-F35E-45D8-9C4C-23823A1C12FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E23908-F35E-45D8-9C4C-23823A1C12FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5133AB7F-956E-4A2B-AB55-FDEA2E2A6A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5133AB7F-956E-4A2B-AB55-FDEA2E2A6A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5133AB7F-956E-4A2B-AB55-FDEA2E2A6A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5133AB7F-956E-4A2B-AB55-FDEA2E2A6A2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +62,8 @@ Global
 		{84614E7F-CA76-4966-B67E-2CB2423F5BD4} = {6227A365-703F-4B09-ABE6-D36048B2BA08}
 		{72CC7115-3558-4A39-8F2A-424FAE6322E6} = {A204D1EC-E4EE-4D89-9BEB-61B70D97D17E}
 		{10190852-A160-4D40-B6C2-0159A9EB08E2} = {09DF6A85-75E7-461A-86FA-82FEA03F50BC}
+		{D0E23908-F35E-45D8-9C4C-23823A1C12FC} = {650A3A70-D132-448D-B208-98F7A92E03B6}
+		{5133AB7F-956E-4A2B-AB55-FDEA2E2A6A2F} = {650A3A70-D132-448D-B208-98F7A92E03B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4335E077-2866-448B-90C9-C7B30B38E96D}

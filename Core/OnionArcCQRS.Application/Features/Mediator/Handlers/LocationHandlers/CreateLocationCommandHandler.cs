@@ -21,7 +21,7 @@ namespace OnionArcCQRS.Application.Features.Mediator.Handlers.LocationHandlers
 
         public async Task Handle(CreateLocationCommand request, CancellationToken cancellationToken)
         {
-            var value = _repository.CreateAsync(new Location
+            await _repository.CreateAsync(new Location
             {
                 LocationName = request.LocationName
             });

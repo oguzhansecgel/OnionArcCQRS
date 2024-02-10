@@ -21,7 +21,7 @@ namespace OnionArcCQRS.Application.Features.Mediator.Handlers.PricingHandlers
 
         public async Task Handle(CreatePricingCommand request, CancellationToken cancellationToken)
         {
-            var values = _repository.CreateAsync(new Pricing
+            await _repository.CreateAsync(new Pricing
             {
                 Name = request.Name,
 
