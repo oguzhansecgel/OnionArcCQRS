@@ -9,6 +9,7 @@ namespace OnionArcCQRS.Application.Interfaces.CarInterfaces
 {
     public interface ICarRepository
     {
-        List<Car> GetCarListWithBrand(); 
+        List<Car> GetCarListWithBrand();
+        List<Car> GetLast5CarsWithBrands();
     }
 }

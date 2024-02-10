@@ -15,12 +15,14 @@ namespace OnionArcCQRS.WebApi.Controllers
         private readonly GetCarByIdQueryHandler _CarGetByIdCommand;
         private readonly GetCarQueryHandler _brandCommand;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandCommand;
+        private readonly GetLast5CarWithBrandQueryHandler _getLast5CarWithBrandQueryHandler;
         public CarsController(CreateCarCommandHandler createCarCommand,
             UpdateCarCommandHandler updateCarCommand,
             RemoveCarCommandHandler removeCarCommand,
             GetCarByIdQueryHandler brandGetByIdCommand,
             GetCarQueryHandler brandCommand,
-            GetCarWithBrandQueryHandler getCarWithBrandCommand)
+            GetCarWithBrandQueryHandler getCarWithBrandCommand,
+            GetLast5CarWithBrandQueryHandler getLast5CarWithBrandQueryHandler)
         {
             _createCarCommand = createCarCommand;
             _updateCarCommand = updateCarCommand;
@@ -28,6 +30,7 @@ namespace OnionArcCQRS.WebApi.Controllers
             _CarGetByIdCommand = brandGetByIdCommand;
             _brandCommand = brandCommand;
             _getCarWithBrandCommand = getCarWithBrandCommand;
+            _getLast5CarWithBrandQueryHandler = getLast5CarWithBrandQueryHandler;
         }
 
         [HttpGet]
@@ -46,6 +49,12 @@ namespace OnionArcCQRS.WebApi.Controllers
         public IActionResult GetCarWithBrand()
         {
             var values = _getCarWithBrandCommand.Handle();
+            return Ok(values);
+        }
+        [HttpGet("")]
+        public IActionResult GetLast5CarsWithBrands()
+        {
+            var values = _getLast5CarWithBrandQueryHandler.Handle();
             return Ok(values);
         }
         [HttpPost]
