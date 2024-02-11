@@ -22,7 +22,8 @@ namespace OnionArcCQRS.WebApi.Controllers
             GetCarByIdQueryHandler brandGetByIdCommand,
             GetCarQueryHandler brandCommand,
             GetCarWithBrandQueryHandler getCarWithBrandCommand,
-            GetLast5CarWithBrandQueryHandler getLast5CarWithBrandQueryHandler)
+            GetLast5CarWithBrandQueryHandler getLast5CarWithBrandQueryHandler
+          )
         {
             _createCarCommand = createCarCommand;
             _updateCarCommand = updateCarCommand;
@@ -57,6 +58,7 @@ namespace OnionArcCQRS.WebApi.Controllers
             var values = _getLast5CarWithBrandQueryHandler.Handle();
             return Ok(values);
         }
+       
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarCommand command)
         {
@@ -75,6 +77,6 @@ namespace OnionArcCQRS.WebApi.Controllers
             await _removeCarCommand.Handle(new DeleteCarCommand(id));
             return Ok("Başarıyla Silindi");
         }
-       
+
     }
 }

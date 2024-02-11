@@ -6,10 +6,14 @@ using OnionArcCQRS.Application.Features.CQRS.Handlers.CarHandlers;
 using OnionArcCQRS.Application.Features.CQRS.Handlers.CategoryHandlers;
 using OnionArcCQRS.Application.Features.CQRS.Handlers.ContactHandlers;
 using OnionArcCQRS.Application.Interfaces;
+using OnionArcCQRS.Application.Interfaces.BlogInterfaces;
 using OnionArcCQRS.Application.Interfaces.CarInterfaces;
+using OnionArcCQRS.Application.Interfaces.CarPricingInterfaces;
 using OnionArcCQRS.Application.Services;
 using OnionArcCQRS.Persistence.Context;
 using OnionArcCQRS.Persistence.Repositories;
+using OnionArcCQRS.Persistence.Repositories.BlogRepositories;
+using OnionArcCQRS.Persistence.Repositories.CarPricingRepositories;
 using OnionArcCQRS.Persistence.Repositories.CarRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository),typeof(CarRepository));
+builder.Services.AddScoped(typeof(IBlogRepository),typeof(BlogRepository));
+builder.Services.AddScoped(typeof(ICarPricingRepository),typeof(CarPricingRepository));
  
 
 builder.Services.AddControllers();
