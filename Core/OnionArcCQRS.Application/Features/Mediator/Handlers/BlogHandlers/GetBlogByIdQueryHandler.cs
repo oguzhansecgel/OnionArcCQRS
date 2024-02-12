@@ -31,6 +31,7 @@ namespace OnionArcCQRS.Application.Features.Mediator.Handlers.BlogHandlers
                 CoverImage = values.CoverImage,
                 CreatedTime = values.CreatedTime,
                 BlogTitle = values.BlogTitle,
+                Description=values.Description,
                 
             };
         }

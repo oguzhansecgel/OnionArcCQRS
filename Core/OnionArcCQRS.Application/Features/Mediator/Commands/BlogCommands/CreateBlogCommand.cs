@@ -14,5 +14,6 @@ namespace OnionArcCQRS.Application.Features.Mediator.Commands.BlogCommands
         public DateTime CreatedTime { get; set; }
         public int CategoryID { get; set; }
         public int AuthorID { get; set; }
+        public string Description { get; set; }
     }
 }

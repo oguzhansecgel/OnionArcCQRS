@@ -5,6 +5,7 @@ using OnionArcCQRS.Application.Features.Mediator.Commands.AuthorCommands;
 using OnionArcCQRS.Application.Features.Mediator.Commands.BlogCommands;
 using OnionArcCQRS.Application.Features.Mediator.Queries.AuthorQueries;
 using OnionArcCQRS.Application.Features.Mediator.Queries.BlogQueries;
+using OnionArcCQRS.Application.Features.Mediator.Results.BlogResults;
 
 namespace OnionArcCQRS.WebApi.Controllers
 {
@@ -34,6 +35,18 @@ namespace OnionArcCQRS.WebApi.Controllers
         public async Task<IActionResult> GetLast3BlogWithAuthorList()
         {
             var values = await _mediator.Send(new GetLast3BlogsWithAuthorsQuery());
+            return Ok(values);
+        }
+        [HttpGet("GetAllBlogsWithAuthor")]
+        public async Task<IActionResult> GetAllBlogsWithAuthor()
+        {
+            var values = await _mediator.Send(new GetAllBlogsWithAuthorQuery());
+            return Ok(values);
+        }
+        [HttpGet("GetAllBlogsWithAuthorId")]
+        public async Task<IActionResult> GetAllBlogsWithAuthorId(int id)
+        {
+            var values = await _mediator.Send(new GetBlogByAuthorIdQuery(id));
             return Ok(values);
         }
         [HttpPost]

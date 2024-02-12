@@ -19,6 +19,18 @@ namespace OnionArcCQRS.Persistence.Repositories.BlogRepositories
             _context = context;
         }
 
+        public List<Blog> GetAllBlogsWithAuthors()
+        {
+            var values = _context.Blogs.Include(x => x.Author).ToList();
+            return values;
+        }
+
+        public List<Blog> GetBlogsByAuthorId(int id)
+        {
+            var values = _context.Blogs.Include(x => x.Author).Where(y => y.BlogId == id).ToList();
+            return values;
+        }
+
         public List<Blog> GetLast3BlogsWithAuthors()
         {
             var values = _context.Blogs.Include(x => x.Author).OrderByDescending(x=>x.BlogId).Take(3).ToList();

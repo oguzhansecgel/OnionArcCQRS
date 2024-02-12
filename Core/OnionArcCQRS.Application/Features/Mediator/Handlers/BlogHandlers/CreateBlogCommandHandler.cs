@@ -27,7 +27,8 @@ namespace OnionArcCQRS.Application.Features.Mediator.Handlers.BlogHandlers
                 CategoryID = request.CategoryID,
                 CoverImage = request.CoverImage,
                 CreatedTime = request.CreatedTime,
-                BlogTitle = request.BlogTitle
+                BlogTitle = request.BlogTitle,
+                Description = request.Description,
             });
         }
     }
