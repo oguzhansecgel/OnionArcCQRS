@@ -19,7 +19,7 @@ namespace OnionArcCQRS.WebUI.Controllers
             ViewBag.v1 = "Araçlarımız";
             ViewBag.v2 = "Aracınızı Seçiniz";
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7179/api/CarPricings");
+            var responseMessage = await client.GetAsync("https://localhost:7179/api/CarPricings/GetCarPricingWithCarList");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

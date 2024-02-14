@@ -6,7 +6,7 @@ using OnionArcCQRS.Application.Features.Mediator.Queries.LocationQueries;
 
 namespace OnionArcCQRS.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CarPricingsController : ControllerBase
     {
