@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnionArcCQRS.Domain.Entities
+namespace OnionArcCQRS.Dto.BannerDtos
 {
-    public class About
+    public class UpdateBannerDto
     {
-        public int AboutID { get; set; }
+        public int BannerID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public string VideoDescription { get; set; }
+        public string VideoUrl { get; set; }
     }
 }
