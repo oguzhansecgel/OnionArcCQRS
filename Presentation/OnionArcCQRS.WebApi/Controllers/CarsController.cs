@@ -71,7 +71,7 @@ namespace OnionArcCQRS.WebApi.Controllers
             await _updateCarCommand.Handle(command);
             return Ok("Başarıyla Güncellendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCar(int id)
         {
             await _removeCarCommand.Handle(new DeleteCarCommand(id));
