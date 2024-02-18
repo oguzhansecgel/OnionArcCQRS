@@ -51,15 +51,12 @@ namespace OnionArcCQRS.WebApi.Controllers
             return Ok("Yorum başarıyla silindi");
         }
 
-       
-
-
-        //[HttpGet("CommentListByBlog")]
-        //public IActionResult CommentListByBlog(int id)
-        //{
-        //    var value = _commentsRepository.GetCommentsByBlogId(id);
-        //    return Ok(value);
-        //}
+        [HttpGet("CommentListByBlog")]
+        public IActionResult CommentListByBlog(int id)
+        {
+            var value = _repository.GetCommentsByBlogId(id);
+            return Ok(value);
+        }
 
         //[HttpGet("CommentCountByBlog")]
         //public IActionResult CommentCountByBlog(int id)
