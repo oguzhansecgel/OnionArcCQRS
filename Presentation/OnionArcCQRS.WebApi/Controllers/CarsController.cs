@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnionArcCQRS.Application.Features.CQRS.Commands.CarCommand;
 using OnionArcCQRS.Application.Features.CQRS.Handlers.CarHandlers;
+using OnionArcCQRS.Application.Features.Mediator.Queries.StatisticsQueries;
 
 namespace OnionArcCQRS.WebApi.Controllers
 {
@@ -16,6 +18,7 @@ namespace OnionArcCQRS.WebApi.Controllers
         private readonly GetCarQueryHandler _brandCommand;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandCommand;
         private readonly GetLast5CarWithBrandQueryHandler _getLast5CarWithBrandQueryHandler;
+        private readonly IMediator _mediator;
         public CarsController(CreateCarCommandHandler createCarCommand,
             UpdateCarCommandHandler updateCarCommand,
             RemoveCarCommandHandler removeCarCommand,
@@ -23,7 +26,8 @@ namespace OnionArcCQRS.WebApi.Controllers
             GetCarQueryHandler brandCommand,
             GetCarWithBrandQueryHandler getCarWithBrandCommand,
             GetLast5CarWithBrandQueryHandler getLast5CarWithBrandQueryHandler
-          )
+,
+            IMediator mediator)
         {
             _createCarCommand = createCarCommand;
             _updateCarCommand = updateCarCommand;
@@ -32,6 +36,7 @@ namespace OnionArcCQRS.WebApi.Controllers
             _brandCommand = brandCommand;
             _getCarWithBrandCommand = getCarWithBrandCommand;
             _getLast5CarWithBrandQueryHandler = getLast5CarWithBrandQueryHandler;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -58,7 +63,7 @@ namespace OnionArcCQRS.WebApi.Controllers
             var values = _getLast5CarWithBrandQueryHandler.Handle();
             return Ok(values);
         }
-       
+        
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarCommand command)
         {

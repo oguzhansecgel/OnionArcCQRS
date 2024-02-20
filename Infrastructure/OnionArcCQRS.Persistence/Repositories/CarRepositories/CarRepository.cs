@@ -19,6 +19,12 @@ namespace OnionArcCQRS.Persistence.Repositories.CarRepository
             _context = context;
         }
 
+        public int GetCarCount()
+        {
+            var value = _context.Cars.Count();
+            return value;
+        }
+
         public List<Car> GetCarListWithBrand()
         {
             var values = _context.Cars.Include(x => x.Brand).ToList();

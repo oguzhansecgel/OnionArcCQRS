@@ -11,5 +11,6 @@ namespace OnionArcCQRS.Application.Interfaces.CarInterfaces
     {
         List<Car> GetCarListWithBrand();
         List<Car> GetLast5CarsWithBrands();
+        int GetCarCount();
     }
 }
