@@ -45,5 +45,23 @@ namespace OnionArcCQRS.WebApi.Controllers
             var values = await _mediator.Send(new GetBrandCountQuery());
             return Ok(values);
         }
+        [HttpGet("")]
+        public async Task<IActionResult> GetAvgPriceForDaily()
+        {
+            var values = await _mediator.Send(new GetAvgRentPriceForDailyQuery());
+            return Ok(values);
+        }
+        [HttpGet("")]
+        public async Task<IActionResult> GetAvgRentPriceForMonthly()
+        {
+            var values = await _mediator.Send(new GetAvgRentPriceForMonthlyQuery());
+            return Ok(values);
+        }
+        [HttpGet("")]
+        public async Task<IActionResult> GetAvgRentPriceForWeekly()
+        {
+            var values = await _mediator.Send(new GetAvgRentPriceForWeeklyQuery());
+            return Ok(values);
+        }
     }
 }

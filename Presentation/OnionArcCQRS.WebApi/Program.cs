@@ -10,6 +10,7 @@ using OnionArcCQRS.Application.Interfaces;
 using OnionArcCQRS.Application.Interfaces.BlogInterfaces;
 using OnionArcCQRS.Application.Interfaces.CarInterfaces;
 using OnionArcCQRS.Application.Interfaces.CarPricingInterfaces;
+using OnionArcCQRS.Application.Interfaces.RentACarInterfaces;
 using OnionArcCQRS.Application.Interfaces.StatisticsInterfaces;
 using OnionArcCQRS.Application.Interfaces.TagCloudInterfaces;
 using OnionArcCQRS.Application.Services;
@@ -20,6 +21,7 @@ using OnionArcCQRS.Persistence.Repositories.BlogRepositories;
 using OnionArcCQRS.Persistence.Repositories.CarPricingRepositories;
 using OnionArcCQRS.Persistence.Repositories.CarRepository;
 using OnionArcCQRS.Persistence.Repositories.CommentRepositories;
+using OnionArcCQRS.Persistence.Repositories.RentACarRepositories;
 using OnionArcCQRS.Persistence.Repositories.StatisticsRepositories;
 using OnionArcCQRS.Persistence.Repositories.TagCloudRepositories;
 
@@ -34,6 +36,7 @@ builder.Services.AddScoped(typeof(ICarPricingRepository),typeof(CarPricingReposi
 builder.Services.AddScoped(typeof(ITagCloudRepository),typeof(TagCloudRepository));
 builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(CommentRepository<>));
 builder.Services.AddScoped(typeof(IStatisticsRepository),typeof(StatisticsRepository));
+builder.Services.AddScoped(typeof(IRentACarRepository),typeof(RentACarRepository));
  
 
 builder.Services.AddControllers();
