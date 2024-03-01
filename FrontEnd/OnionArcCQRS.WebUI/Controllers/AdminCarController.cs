@@ -56,6 +56,7 @@ namespace OnionArcCQRS.WebUI.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+
         }
 
         public async Task<IActionResult> RemoveCar(int id)

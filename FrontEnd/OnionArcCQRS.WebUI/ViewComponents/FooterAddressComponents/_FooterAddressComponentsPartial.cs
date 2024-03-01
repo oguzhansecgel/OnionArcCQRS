@@ -32,4 +32,3 @@ namespace OnionArcCQRS.WebUI.ViewComponents.FooterAddressComponents
         }
     }
 }
-//_FooterAddressComponentsPartial

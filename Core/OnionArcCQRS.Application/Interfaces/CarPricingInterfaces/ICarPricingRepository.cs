@@ -1,4 +1,5 @@
-﻿using OnionArcCQRS.Domain.Entities;
+﻿using OnionArcCQRS.Application.ViewModels;
+using OnionArcCQRS.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace OnionArcCQRS.Application.Interfaces.CarPricingInterfaces
     public interface ICarPricingRepository
     {
         List<CarPricing> GetCarPricingWithCars();
+        List<CarPricing> GetCarPricingWithTimePeriod();
+        List<CarPricingViewModel> GetCarPricingWithTimePeriod1();
 
     }
 }

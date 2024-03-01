@@ -22,6 +22,20 @@ namespace OnionArcCQRS.Persistence.Context
             modelBuilder.Entity<CarPricing>()
                 .Property(c => c.Amount)
                 .HasColumnType("decimal(18,2)"); // Örnek olarak, decimal(18,2) olarak yapılandırıldı. 
+            
+            
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.PickUpLocation)
+                .WithMany(y => y.PickUpReservation)
+                .HasForeignKey(z => z.PickUpLocationID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.DropOffLocation)
+                .WithMany(y => y.DropOffReservation)
+                .HasForeignKey(z => z.DropOffLocationID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Banner> Banners { get; set; }
@@ -44,6 +58,8 @@ namespace OnionArcCQRS.Persistence.Context
         public DbSet<TagCloud>TagClouds{ get; set; }
         public DbSet<Comment>Comments{ get; set; }
         public DbSet<RentACar>RentACars{ get; set; }
-    
+        public DbSet<Reservation>Reservations{ get; set; }
+
+ 
     }
 }
