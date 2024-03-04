@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnionArcCQRS.Application.Features.Mediator.Commands.CommentCommands;
 using OnionArcCQRS.Application.Features.RepositoryPattern;
 using OnionArcCQRS.Domain.Entities;
 using OnionArcCQRS.Persistence.Repositories.CommentRepositories;
@@ -11,10 +13,12 @@ namespace OnionArcCQRS.WebApi.Controllers
     public class CommentsController : ControllerBase
     {
         private readonly IGenericRepository<Comment> _repository;
+        private readonly IMediator _mediator;
 
-        public CommentsController(IGenericRepository<Comment> repository)
+        public CommentsController(IGenericRepository<Comment> repository, IMediator mediator)
         {
             _repository = repository;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -58,18 +62,18 @@ namespace OnionArcCQRS.WebApi.Controllers
             return Ok(value);
         }
 
-        //[HttpGet("CommentCountByBlog")]
-        //public IActionResult CommentCountByBlog(int id)
-        //{
-        //    var value = _commentsRepository.GetCountCommentByBlog(id);
-        //    return Ok(value);
-        //}
+        [HttpGet("CommentCountByBlog")]
+        public IActionResult CommentCountByBlog(int id)
+        {
+            var value = _repository.GetCountCommentByBlog(id);
+            return Ok(value);
+        }
 
-        //[HttpPost("CreateCommentWithMediator")]
-        //public async Task<IActionResult> CreateCommentWithMediator(CreateCommentCommand command)
-        //{
-        //    await _mediator.Send(command);
-        //    return Ok("Yorum başarıyla eklendi");
-        //}
+        [HttpPost("CreateCommentWithMediator")]
+        public async Task<IActionResult> CreateCommentWithMediator(CreateCommentCommands command)
+        {
+            await _mediator.Send(command);
+            return Ok("Yorum başarıyla eklendi");
+        }
     }
 }

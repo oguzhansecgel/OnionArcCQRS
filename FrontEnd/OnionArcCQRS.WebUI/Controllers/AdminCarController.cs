@@ -114,5 +114,11 @@ namespace OnionArcCQRS.WebUI.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public IActionResult AdminCarDetail(int id)
+        {
+            return View();
+        }
+
     }
 }
